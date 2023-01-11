@@ -9,5 +9,8 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3"
   }
 }
