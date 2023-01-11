@@ -825,6 +825,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/core/",\
           "packageDependencies": [\
             ["@data-repo/core", "workspace:packages/core"],\
+            ["@types/lodash", "npm:4.14.191"],\
             ["@typescript-eslint/eslint-plugin", "virtual:71c08b44b509df9ab8951744a10eb360f730b8880e3660a379139ee3214e5241d68e9f1a400a53c5c1bb30729a33a9c54846d5a50085e910d82ae76157e29426#npm:5.48.1"],\
             ["@typescript-eslint/parser", "virtual:71c08b44b509df9ab8951744a10eb360f730b8880e3660a379139ee3214e5241d68e9f1a400a53c5c1bb30729a33a9c54846d5a50085e910d82ae76157e29426#npm:5.48.1"],\
             ["eslint", "npm:8.31.0"],\
@@ -1429,6 +1430,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json-schema-npm-7.0.11-79462ae5ca-527bddfe62.zip/node_modules/@types/json-schema/",\
           "packageDependencies": [\
             ["@types/json-schema", "npm:7.0.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lodash", [\
+        ["npm:4.14.191", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.191-67a04a969b-ba0d5434e1.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.191"]\
           ],\
           "linkType": "HARD"\
         }]\
