@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  target-determinator:
+    runs-on: ubuntu-20.04
+    outputs:
+      targets: ${{ steps.set-targets.outputs.targets }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - id: get-changed-files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: json
+      - id: target-determinator
+        uses: sargunv/yarn-target-determinator@v1
+        with:
+          files: ${{ steps.get-changed-files.outputs.all }}
+      - id: set-targets
+        run: echo '::set-output name=targets::${{ steps.target-determinator.outputs.targets }}'
+
+  test:
+    runs-on: ubuntu-20.04
+    needs: [target-determinator]
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJson(needs.target-determinator.outputs.targets) }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: yarn install
+      - run: yarn workspaces foreach -Rptv --from ${{ matrix.target }} run build
+      - run: DISABLE_MONGO_TESTS=true yarn workspace ${{ matrix.target }} run test
+      - run: yarn workspace ${{ matrix.target }} run lint
