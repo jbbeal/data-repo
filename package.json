@@ -1,0 +1,33 @@
+{
+  "name": "data-repo",
+  "description": "Collection of packages implementing a shared interface for interacting with a variety of data stores and services",
+  "repository": "git@github.com:jbbeal/data-repo.git",
+  "author": "Jeff Beal <jeffbeal@outlook.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.3.1",
+  "scripts": {
+    "build": "echo 'no build in root workspace; use buildall to build full project'",
+    "buildall": "yarn workspaces foreach -tv run build",
+    "test": "echo 'no tests in root workspace; use testall to test full project'",
+    "testall": "yarn workspaces foreach -tv run test",
+    "lint": "echo 'no lint in root workspace; use lintall to lint full project'",
+    "lintall": "yarn workspaces foreach -tv run lint"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/eslint": "^8",
+    "@types/prettier": "^2",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.2",
+    "typescript": "^4.9.4"
+  }
+}
