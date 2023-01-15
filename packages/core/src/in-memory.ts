@@ -20,13 +20,13 @@ export class InMemoryDataRepo<T extends DataObject> extends AbstractDataRepo<T> 
       if (found.keyString === keyString) {
         return Promise.resolve({
           data: found.record,
-          result: ReadResult.FOUND
+          result: ReadResult.FOUND,
         });
       }
     }
     return Promise.resolve({
       data: undefined,
-      result: ReadResult.NOT_FOUND
+      result: ReadResult.NOT_FOUND,
     });
   }
   putObject(obj: T): Promise<WriteResults<T>> {
@@ -60,7 +60,7 @@ export class InMemoryDataRepo<T extends DataObject> extends AbstractDataRepo<T> 
       }
     }
     return Promise.resolve({
-      data:foundRecords,
+      data: foundRecords,
       result: foundRecords.length > 0 ? ReadResult.FOUND : ReadResult.NOT_FOUND,
       hasMore: false,
       next: undefined,

@@ -77,7 +77,7 @@ export type GetResponse<T extends DataObject> = {
   result: ReadResult;
   error?: string;
   errorCode?: number;
-}
+};
 
 export type ListResponse<T extends DataObject> = {
   data: T[];
@@ -86,12 +86,12 @@ export type ListResponse<T extends DataObject> = {
   next: Keys<T> | undefined;
   error?: string;
   errorCode?: number;
-}
+};
 
 export enum ReadResult {
   FOUND = 'found',
   NOT_FOUND = 'not_found',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 export type KeyConfig<T extends DataObject> = {
