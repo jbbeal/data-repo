@@ -14,10 +14,10 @@ export interface DataRepo<T extends DataObject> {
    * Looks up an object by its key fields. This method will always use the index
    * @param template Subset of fields in the object necessary for a complete lookup
    */
-  getObject(template: Partial<T>): Promise<T | null>;
+  getObject(template: Partial<T>): Promise<GetResponse<T>>;
   putObject(obj: T): Promise<WriteResults<T>>;
   putObjects(objects: T[]): Promise<WriteResults<T>[]>;
-  listObjects(template: Partial<T>): Promise<T[]>;
+  listObjects(template: Partial<T>): Promise<ListResponse<T>>;
 }
 
 export type Scalar = IndexableScalar | boolean | null | undefined;
@@ -70,6 +70,28 @@ export enum WriteResult {
   CREATED = 'created',
   CONFLICT = 'conflict',
   ERROR = 'error',
+}
+
+export type GetResponse<T extends DataObject> = {
+  data: T | undefined;
+  result: ReadResult;
+  error?: string;
+  errorCode?: number;
+}
+
+export type ListResponse<T extends DataObject> = {
+  data: T[];
+  result: ReadResult;
+  hasMore: boolean;
+  next: Keys<T>;
+  error?: string;
+  errorCode?: number;
+}
+
+export enum ReadResult {
+  FOUND = 'found',
+  NOT_FOUND = 'not_found',
+  ERROR = 'error'
 }
 
 export type KeyConfig<T extends DataObject> = {
