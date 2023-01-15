@@ -83,7 +83,7 @@ export type ListResponse<T extends DataObject> = {
   data: T[];
   result: ReadResult;
   hasMore: boolean;
-  next: Keys<T>;
+  next: Keys<T> | undefined;
   error?: string;
   errorCode?: number;
 }
