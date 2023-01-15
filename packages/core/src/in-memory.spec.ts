@@ -1,4 +1,4 @@
-import { defaultIndexDescription, InMemoryDataRepo, KeyType, WriteResult } from '.';
+import { defaultIndexDescription, InMemoryDataRepo, KeyType, ReadResult, WriteResult } from '.';
 import _ from 'lodash';
 
 describe(InMemoryDataRepo.name, function () {
@@ -80,18 +80,18 @@ describe(InMemoryDataRepo.name, function () {
     it('Finds a user', async function () {
       await testStore.putObjects([firstUser, secondUser]);
       const found = await testStore.getObject({ userId: firstUser.userId });
-      expect(found).toStrictEqual(firstUser);
+      expect(found.data).toStrictEqual(firstUser);
     });
 
     it('Finds other user', async function () {
       await testStore.putObjects([firstUser, secondUser]);
       const found = await testStore.getObject({ userId: secondUser.userId });
-      expect(found).toStrictEqual(secondUser);
+      expect(found.data).toStrictEqual(secondUser);
     });
 
-    it('Returns null', async function () {
+    it('Returns undefined', async function () {
       await testStore.putObjects([firstUser, secondUser]);
-      expect(await testStore.getObject({ userId: 3 })).toBeNull();
+      expect((await testStore.getObject({ userId: 3 })).data).toBeUndefined();
     });
   });
 
@@ -140,7 +140,8 @@ describe(InMemoryDataRepo.name, function () {
       ]);
       await testStore.putObjects(otherMeasures);
       const foundMeasures = await testStore.listObjects({ name: measures[0].name });
-      expect(foundMeasures).toHaveLength(measures.length);
+      expect(foundMeasures.data).toHaveLength(measures.length);
+      expect(foundMeasures.result).toBe(ReadResult.FOUND);
     });
   });
 });
