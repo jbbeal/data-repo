@@ -1,5 +1,5 @@
 import { AbstractDataRepo, scalarToString } from './helpers';
-import { DataObject, DataRepo, WriteResult, WriteResults } from './types';
+import { DataObject, DataRepo, WriteResult, WriteResults, GetResponse, ListResponse, ReadResult } from './types';
 import _ from 'lodash';
 
 type DataRecord<T extends DataObject> = {
@@ -12,16 +12,22 @@ const CONCAT_OPERATOR = '||';
 export class InMemoryDataRepo<T extends DataObject> extends AbstractDataRepo<T> implements DataRepo<T> {
   private dataRecords: DataRecord<T>[] = [];
 
-  async getObject(template: Partial<T>): Promise<T | null> {
+  getObject(template: Partial<T>): Promise<GetResponse<T>> {
     const keyString = this.getKeyString(template);
     const index = _.sortedIndexBy(this.dataRecords, { keyString, record: template }, (rec) => rec.keyString);
     if (index >= 0 && index < this.dataRecords.length) {
       const found = this.dataRecords[index];
       if (found.keyString === keyString) {
-        return found.record;
+        return Promise.resolve({
+          data: found.record,
+          result: ReadResult.FOUND,
+        });
       }
     }
-    return null;
+    return Promise.resolve({
+      data: undefined,
+      result: ReadResult.NOT_FOUND,
+    });
   }
   putObject(obj: T): Promise<WriteResults<T>> {
     const keyString = this.getKeyString(obj);
@@ -39,7 +45,7 @@ export class InMemoryDataRepo<T extends DataObject> extends AbstractDataRepo<T> 
   putObjects(objects: T[]): Promise<WriteResults<T>[]> {
     return Promise.all(objects.map((obj) => this.putObject(obj)));
   }
-  listObjects(template: Partial<T>): Promise<T[]> {
+  listObjects(template: Partial<T>): Promise<ListResponse<T>> {
     const { getKeys } = this.getFirstPrimaryIndex();
     const valueDefs = getKeys(template, { allowPartial: true, allowSkips: false });
     const keyString = valueDefs.map(({ value }) => scalarToString(value)).join(CONCAT_OPERATOR);
@@ -53,7 +59,12 @@ export class InMemoryDataRepo<T extends DataObject> extends AbstractDataRepo<T> 
         break;
       }
     }
-    return Promise.resolve(foundRecords);
+    return Promise.resolve({
+      data: foundRecords,
+      result: foundRecords.length > 0 ? ReadResult.FOUND : ReadResult.NOT_FOUND,
+      hasMore: false,
+      next: undefined,
+    });
   }
 
   private getKeyString(dataObject: T | Partial<T>): string {
