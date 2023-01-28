@@ -1,6 +1,8 @@
 {
   "name": "dynamodb",
   "packageManager": "yarn@3.3.1",
+  "types": "dist/src/index.d.ts",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "clean": "tsc -b tsconfig.build.json --clean",
@@ -12,6 +14,7 @@
   },
   "devDependencies": {
     "@types/eslint": "^8",
+    "@types/jest": "^29.4.0",
     "@types/lodash": "^4",
     "@types/prettier": "^2",
     "@typescript-eslint/eslint-plugin": "^5.49.0",

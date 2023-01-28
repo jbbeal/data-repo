@@ -1236,6 +1236,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^29.4.0":
+  version: 29.4.0
+  resolution: "@types/jest@npm:29.4.0"
+  dependencies:
+    expect: ^29.0.0
+    pretty-format: ^29.0.0
+  checksum: 23760282362a252e6690314584d83a47512d4cd61663e957ed3398ecf98195fe931c45606ee2f9def12f8ed7d8aa102d492ec42d26facdaf8b78094a31e6568e
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
@@ -2344,6 +2354,7 @@ __metadata:
     "@aws-sdk/lib-dynamodb": ^3.259.0
     "@data-repo/core": "workspace:^"
     "@types/eslint": ^8
+    "@types/jest": ^29.4.0
     "@types/lodash": ^4
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^5.49.0

@@ -1757,6 +1757,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pretty-format", "npm:29.3.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:29.4.0", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.4.0-e28b79cadc-2376028236.zip/node_modules/@types/jest/",\
+          "packageDependencies": [\
+            ["@types/jest", "npm:29.4.0"],\
+            ["expect", "npm:29.3.1"],\
+            ["pretty-format", "npm:29.3.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/json-schema", [\
@@ -3336,6 +3345,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@aws-sdk/lib-dynamodb", "virtual:1f304a73ae039a04eabd7556c0cdeae94942e9620b3d6abadc0068600e34800203d2326f00181fff9bf67aa4db8eb6f1265f9d0c588d7b1a847a40eea3c39a74#npm:3.259.0"],\
             ["@data-repo/core", "workspace:packages/core"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/jest", "npm:29.4.0"],\
             ["@types/lodash", "npm:4.14.191"],\
             ["@types/prettier", "npm:2.7.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:1f304a73ae039a04eabd7556c0cdeae94942e9620b3d6abadc0068600e34800203d2326f00181fff9bf67aa4db8eb6f1265f9d0c588d7b1a847a40eea3c39a74#npm:5.49.0"],\
@@ -7312,7 +7322,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
             ["@types/esbuild", null],\
-            ["@types/jest", null],\
+            ["@types/jest", "npm:29.4.0"],\
             ["@types/jest__types", null],\
             ["@types/typescript", null],\
             ["babel-jest", null],\
