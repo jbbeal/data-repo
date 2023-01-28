@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/eslint": "^8",
+    "@types/lodash": "^4",
     "@types/prettier": "^2",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
@@ -51,6 +52,9 @@
     }
   },
   "dependencies": {
-    "@data-repo/core": "workspace:^"
+    "@aws-sdk/lib-dynamodb": "^3.259.0",
+    "@data-repo/core": "workspace:^",
+    "lodash": "^4.17.21",
+    "pino": "^8.8.0"
   }
 }
