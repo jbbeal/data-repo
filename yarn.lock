@@ -1883,6 +1883,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dynamodb@workspace:packages/dynamodb":
+  version: 0.0.0-use.local
+  resolution: "dynamodb@workspace:packages/dynamodb"
+  languageName: unknown
+  linkType: soft
+
 "electron-to-chromium@npm:^1.4.251":
   version: 1.4.284
   resolution: "electron-to-chromium@npm:1.4.284"

@@ -18,13 +18,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@data-repo/core",\
         "reference": "workspace:packages/core"\
+      },\
+      {\
+        "name": "dynamodb",\
+        "reference": "workspace:packages/dynamodb"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["@data-repo/core", ["workspace:packages/core"]],\
-      ["data-repo", ["workspace:."]]\
+      ["data-repo", ["workspace:."]],\
+      ["dynamodb", ["workspace:packages/dynamodb"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -2753,6 +2758,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stream-shift", "npm:1.0.1"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dynamodb", [\
+        ["workspace:packages/dynamodb", {\
+          "packageLocation": "./packages/dynamodb/",\
+          "packageDependencies": [\
+            ["dynamodb", "workspace:packages/dynamodb"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["electron-to-chromium", [\
