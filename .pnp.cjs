@@ -3261,6 +3261,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/dynamodb/",\
           "packageDependencies": [\
             ["dynamodb", "workspace:packages/dynamodb"],\
+            ["@data-repo/core", "workspace:packages/core"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/prettier", "npm:2.7.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:1f304a73ae039a04eabd7556c0cdeae94942e9620b3d6abadc0068600e34800203d2326f00181fff9bf67aa4db8eb6f1265f9d0c588d7b1a847a40eea3c39a74#npm:5.49.0"],\

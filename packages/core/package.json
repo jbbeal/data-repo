@@ -2,6 +2,7 @@
   "name": "@data-repo/core",
   "packageManager": "yarn@3.1.0",
   "version": "0.0.1",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "clean": "tsc -b tsconfig.build.json --clean",

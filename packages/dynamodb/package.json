@@ -49,5 +49,8 @@
     "transform": {
       "^.+\\.ts$": "ts-jest"
     }
+  },
+  "dependencies": {
+    "@data-repo/core": "workspace:^"
   }
 }

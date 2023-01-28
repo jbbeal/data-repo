@@ -409,7 +409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@data-repo/core@workspace:packages/core":
+"@data-repo/core@workspace:^, @data-repo/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@data-repo/core@workspace:packages/core"
   dependencies:
@@ -2292,6 +2292,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dynamodb@workspace:packages/dynamodb"
   dependencies:
+    "@data-repo/core": "workspace:^"
     "@types/eslint": ^8
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^5.49.0
