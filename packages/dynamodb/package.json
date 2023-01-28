@@ -3,9 +3,19 @@
   "packageManager": "yarn@3.3.1",
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
-    "clean": "tsc -b tsconfig.build.json --clean"
+    "clean": "tsc -b tsconfig.build.json --clean",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs}/**/*.ts\""
   },
   "devDependencies": {
+    "@types/eslint": "^8",
+    "@types/prettier": "^2",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3",
     "typescript": "^4.9.4"
   }
 }
