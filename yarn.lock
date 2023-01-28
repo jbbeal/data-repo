@@ -1886,6 +1886,8 @@ __metadata:
 "dynamodb@workspace:packages/dynamodb":
   version: 0.0.0-use.local
   resolution: "dynamodb@workspace:packages/dynamodb"
+  dependencies:
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 

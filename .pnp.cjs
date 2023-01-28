@@ -2764,7 +2764,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:packages/dynamodb", {\
           "packageLocation": "./packages/dynamodb/",\
           "packageDependencies": [\
-            ["dynamodb", "workspace:packages/dynamodb"]\
+            ["dynamodb", "workspace:packages/dynamodb"],\
+            ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
           "linkType": "SOFT"\
         }]\
